@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 rm  $PWD/*.html
 rm  $PWD/*.txt
-wget http://www.catb.org/jargon/html/go01.html
+
+
+original="http://www.dourish.com/goodies/jargon.html"
+wget -r -l1 --no-parent -A.html $original
+trailingedge="ftp://ftp.trailing-edge.com/pub/rsx11freewarev2/rsx81b/374001/jargon.txt"
+#wget $trailingedge
+wget -r -l1 --no-parent -A.txt $trailingedge
+bookurl="http://jargon-file.org/archive/jargon-1.5.0.dos.txt"
+#wget $bookurl
+wget -r -l1 --no-parent -A.txt $bookurl
+url="http://www.catb.org/jargon/html/go01.html"
+wget $url
+#wget http://www.catb.org/jargon/html/go01.html
 cat $PWD/go01.html | pup 'a text{}' > $PWD/a.txt
 
  # delete the first 1 lines of a file
