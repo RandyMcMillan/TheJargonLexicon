@@ -2,6 +2,9 @@
 rm  $PWD/*.html
 rm  $PWD/*.txt
 
+thejargonlexicon="http://www.jargon.net/"
+wget -r -l13 -k -A.html $thejargonlexicon
+wget -r -l13 -A.txt $thejargonlexicon
 
 original="http://www.dourish.com/goodies/jargon.html"
 wget -r -l1 --no-parent -A.html $original
