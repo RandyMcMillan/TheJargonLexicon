@@ -1,25 +1,26 @@
 #wget -r -A.pdf http://url-to-webpage-with-pdfs/
-
 #!/usr/bin/env bash
 rm  $PWD/*.html
 rm  $PWD/*.txt
 
 thejargonlexicon="http://www.jargon.net/"
-wget -r -nc  -l13 -k -A.html $thejargonlexicon
-wget -r -nc  -l13 -A.txt $thejargonlexicon
+#wget -r -nc  -l13 -k -A.html $thejargonlexicon
+#wget -r -nc  -l13 -A.txt $thejargonlexicon
 
 original="http://www.dourish.com/goodies/jargon.html"
-wget -r -nc  -l1 --no-parent -A.html $original
+#wget -r -nc  -l1 --no-parent -A.html $original
 trailingedge="ftp://ftp.trailing-edge.com/pub/rsx11freewarev2/rsx81b/374001/jargon.txt"
 #wget $trailingedge
-wget -r -nc -l1 --no-parent -A.txt $trailingedge
+#wget -r -nc -l1 --no-parent -A.txt $trailingedge
 bookurl="http://jargon-file.org/archive/jargon-1.5.0.dos.txt"
 #wget $bookurl
-wget -r -nc  -l1 --no-parent -A.txt $bookurl
+#wget -r -nc  -l1 --no-parent -A.txt $bookurl
 url="http://www.catb.org/jargon/html/go01.html"
-wget $url
+wget  -nc -l13 -k $url
 #wget http://www.catb.org/jargon/html/go01.html
 cat $PWD/go01.html | pup 'a text{}' > $PWD/a.txt
+cat $PWD/go01.html | pup 'a attr{href}' > $PWD/links.htm
+cat $PWD/go01.html | pup 'a' > $PWD/links.htm
 
  # delete the first 1 lines of a file
 sed '1,4d'  $PWD/a.txt > $PWD/b.txt
@@ -38,5 +39,5 @@ tail -r -n ${#myarray[@]}  $PWD/b.txt > $PWD/c.txt
 sed '1,4d'  $PWD/c.txt > $PWD/d.txt
 tail -r -n ${#myarray[@]}  $PWD/d.txt > $PWD/lexicon.text
 
-rm  $PWD/*.html
-rm  $PWD/*.txt
+#rm  $PWD/*.html
+#rm  $PWD/*.txt
