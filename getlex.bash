@@ -1,19 +1,21 @@
+#wget -r -A.pdf http://url-to-webpage-with-pdfs/
+
 #!/usr/bin/env bash
 rm  $PWD/*.html
 rm  $PWD/*.txt
 
 thejargonlexicon="http://www.jargon.net/"
-wget -r -l13 -k -A.html $thejargonlexicon
-wget -r -l13 -A.txt $thejargonlexicon
+wget -r -nc  -l13 -k -A.html $thejargonlexicon
+wget -r -nc  -l13 -A.txt $thejargonlexicon
 
 original="http://www.dourish.com/goodies/jargon.html"
-wget -r -l1 --no-parent -A.html $original
+wget -r -nc  -l1 --no-parent -A.html $original
 trailingedge="ftp://ftp.trailing-edge.com/pub/rsx11freewarev2/rsx81b/374001/jargon.txt"
 #wget $trailingedge
-wget -r -l1 --no-parent -A.txt $trailingedge
+wget -r -nc -l1 --no-parent -A.txt $trailingedge
 bookurl="http://jargon-file.org/archive/jargon-1.5.0.dos.txt"
 #wget $bookurl
-wget -r -l1 --no-parent -A.txt $bookurl
+wget -r -nc  -l1 --no-parent -A.txt $bookurl
 url="http://www.catb.org/jargon/html/go01.html"
 wget $url
 #wget http://www.catb.org/jargon/html/go01.html
