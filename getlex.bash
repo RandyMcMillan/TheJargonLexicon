@@ -15,12 +15,17 @@ trailingedge="ftp://ftp.trailing-edge.com/pub/rsx11freewarev2/rsx81b/374001/jarg
 bookurl="http://jargon-file.org/archive/jargon-1.5.0.dos.txt"
 #wget $bookurl
 #wget -r -nc  -l1 --no-parent -A.txt $bookurl
-url="http://www.catb.org/jargon/html/go01.html"
+#url="http://www.catb.org/jargon/html/go01.html"
+url="https://www.google.com"
 wget  -nc -l13 -k $url
 #wget http://www.catb.org/jargon/html/go01.html
 cat $PWD/go01.html | pup 'a text{}' > $PWD/a.txt
 cat $PWD/go01.html | pup 'a attr{href}' > $PWD/links.htm
 cat $PWD/go01.html | pup 'a' > $PWD/links.htm
+cat $PWD/go01.html | pup 'img' > $PWD/img.htm
+#wget -r -P $PWD -A jpg,jpeg,gif,png http://imgur.com/index.html
+wget -nd -r -l 1 -A jpg http://imgur.com/
+wget --no-check-certificate https://images.google.com
 
  # delete the first 1 lines of a file
 sed '1,4d'  $PWD/a.txt > $PWD/b.txt
