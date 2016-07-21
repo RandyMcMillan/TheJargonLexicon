@@ -1,7 +1,9 @@
 #wget -r -A.pdf http://url-to-webpage-with-pdfs/
 #!/usr/bin/env bash
-rm  $PWD/*.html
-rm  $PWD/*.txt
+rm -f  $PWD/*.html
+rm -f  $PWD/*.htm*
+rm -f  $PWD/*.txt
+rm -f  $PWD/*.txt*
 
 thejargonlexicon="http://www.jargon.net/"
 #wget -r -nc  -l13 -k -A.html $thejargonlexicon
@@ -44,5 +46,7 @@ tail -r -n ${#myarray[@]}  $PWD/b.txt > $PWD/c.txt
 sed '1,4d'  $PWD/c.txt > $PWD/d.txt
 tail -r -n ${#myarray[@]}  $PWD/d.txt > $PWD/lexicon.text
 
-#rm  $PWD/*.html
-#rm  $PWD/*.txt
+rm -f  $PWD/*.html
+rm -f  $PWD/*.htm*
+rm -f  $PWD/*.txt
+rm -f  $PWD/*.txt*
